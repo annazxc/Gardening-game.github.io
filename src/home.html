@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gardening Wonderland</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gardening Wonderland</h1>
+      <button id="playAudioButton">Play Background Music</button>
+    </header>
+    <main>
+      <canvas id="gameCanvas"></canvas>
+    </main>
+  
+    <audio id="backgroundAudio" autoplay loop>
+      <source src="assets/slowlife.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <footer>
+      <p>&copy; 2025 Gardening Wonderland by Tingan Cheng.</p>
+    </footer>
+  <script type="module" src="main.js"></script>
+  <script src="audioControl.js"></script>
+  </body>
+  
+</html>
