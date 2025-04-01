@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="assets/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Garden Map</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Garden Map</h1>
+            <button id="playAudioButton" class="btn btn-primary audio-btn">Play Background Music</button>
+        </header>
+        <div id="camera-container">
+            <div id="camera"></div>
+            <button class="btn btn-primary" id="placeBtn" onclick="toggleScanner()">SCAN QR CODE</button>
+        </div>
+        
+        <div id="map-container"> 
+            <img src="assets/images/level_0.png" alt="map" id="map"> 
+            <img src="assets/images/man.png" id="marker" alt="You are here">
+            <button id="sleepBtn" class="btn btn-secondary" style="display: none;">Take a Break</button>
+            <button id="startExploringBtn" class="btn btn-primary" style="display: none;">Start Exploring</button>
+            <button id="worldMapBtn" class="btn btn-secondary" style="display: none;">World Map</button>
+            
+            <div id="mobile-controls" style="display: none;">
+                <button id="up" class="control-btn">↑</button>
+                <div class="horizontal-controls">
+                    <button id="left" class="control-btn">←</button>
+                    <button id="right" class="control-btn">→</button>
+                </div>
+                <button id="down" class="control-btn">↓</button>
+            </div>
+        </div>
+        <audio id="backgroundAudio" loop>
+            <source src="assets/audio/jazz.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <footer>
+            &copy; 2025 Gardening Wonderland by Tingan Cheng.
+        </footer>
+    <script src="js/audioControl.js"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/controls.js"></script>
+    </body>
+</html>

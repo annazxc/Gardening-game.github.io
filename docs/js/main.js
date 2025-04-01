@@ -40,3 +40,7 @@ window.addEventListener('beforeunload', (event) => {
         return event.returnValue;
     }
 });
+//for map
+const images = [ new Image(), new Image()];
+images[0].src = 'assets/images/level_0.png';
+images[1].src = 'assets/images/level_1.png';
