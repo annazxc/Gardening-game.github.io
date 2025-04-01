@@ -119,7 +119,7 @@ function initializeControls() {
         }
     };
     document.getElementById("worldMapBtn").onclick = function() {
-        window.location.href = "../QR.html";
+        window.location.href = "/QR.html";
     };
 }
 window.onload = initializeControls;
