@@ -17,7 +17,7 @@ function showMarkerAt(place) {
        
         map.src = `assets/images/level_${place.level}.png`;
         
-        if (place.info === "resting area") {
+        if (place.info === "Resting Area") {
             sleepBtn.style.display = "block";
             sleepBtn.onclick = function() {
                 showCaveEntrance();

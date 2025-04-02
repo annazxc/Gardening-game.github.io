@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looking Glass Garden</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/garden.css">
+</head>
+<body>
+    <header>
+    <button id="playAudioButton" class="btn btn-primary audio-btn"></button>
+    <h1>Looking Glass Garden</h1>
+    </header>
+    <div>
+    <button class="btn btn-secondary back-button" onclick="window.location.href='QR.html'">Back to Map</button>
+    <button id="launchSlotMachine" class="btn btn-primary  back-button" onclick="showSlotMachine()">Play Slot Machine</button>
+    </div>
+    <div class="plant-inventory">
+        <div class="plant-item">
+            <div class="plant-emoji">🌱</div>
+            <h3>Seeds</h3>
+            <p id="seeds-count">0</p>
+            <p>Ready to plant</p>
+        </div>
+        <div class="plant-item">
+            <div class="plant-emoji">🌿</div>
+            <h3>Sprouts</h3>
+            <p id="sprouts-count">0</p>
+            <p>Growing (6 mins)</p>
+        </div>
+        <div class="plant-item">
+            <div class="plant-emoji">🌳</div>
+            <h3>Trees</h3>
+            <p id="trees-count">0</p>
+            <p>Growing (10 mins)</p>
+        </div>
+    </div>
+    
+    <div class="garden-container">
+        <div class="garden-grid" id="garden-grid">
+            <!-- Garden plots will be generated here -->
+        </div>
+    </div>
+    
+    <audio id="backgroundAudio">
+        Your browser does not support the audio element.
+    </audio>
+    <footer>
+        &copy; 2025 Gardening Wonderland by Tingan Cheng.
+    </footer>
+    <script src="js/audioControl.js"></script>
+    <script href="js/slotMachine.js"></script>
+    <script href="js/garden.js"></script>
+    
+</body>
+</html>

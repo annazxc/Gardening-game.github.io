@@ -1,0 +1,92 @@
+/* Slot Machine Styles */
+.slot-machine-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.slot-machine-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slot-machine-overlay.closing {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.slot-machine-content {
+    background-image: linear-gradient(to bottom, #4a2a0a, #8b4513);
+    border: 10px solid gold;
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    transform: scale(0.8);
+    transition: transform 0.5s;
+}
+
+.slot-machine-overlay.open .slot-machine-content {
+    transform: scale(1);
+}
+
+.slot-machine-content h2 {
+    color: gold;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.slot-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.slot-reel {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.spin-button {
+    padding: 10px 30px;
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.result-display {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    min-height: 50px;
+}
+
+/* Notebook button styling */
+.notebook-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+

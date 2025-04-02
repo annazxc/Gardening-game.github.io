@@ -1,0 +1,28 @@
+.bouncing-seed {
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #f9f0c1;
+    border: 1px solid #e6c74c;
+    border-radius: 5px;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    font-size: medium;
+    z-index: 100;
+}
+
+
+.collected-word {
+    margin-right: 5px;
+}
+
+.completed-phrase {
+    background-color: #c8e6c9;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+.seeds-count {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #8B4513;
+}

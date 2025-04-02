@@ -9,6 +9,9 @@ Check out my [Personal Website](https://annazxc.github.io/) for more information
   - License Code: ZCJWO1SZ5FAUIR5K
 - **slowlife**: 
   - License Code: SVK4UOPBD8EQCGVQ
+- **Suite from Alice's Adventures in Wonderland**
+
+## Book:
 - **Alice's Adventures in Wonderland** by Lewis Carroll
   - From: [Project Gutenberg](https://gutenberg.org/ebooks/11)
   
@@ -38,5 +41,35 @@ Check out my [Personal Website](https://annazxc.github.io/) for more information
 - 6: 
     info:"cave entrance",
     level:1
+
+# Phrases in Alice's adventure in Wonderland used
+## Phrases 
+   - "We're all mad."
+   - "Curiouser still!"
+   - "No use going back; I'm different now."
+   - "Off with their heads!"
+   - "I've believed six impossible things before breakfast."
+   - "Who am I? That's the puzzle."
+   - "Start at the beginning, stop at the end."
+   - "I'm not crazy; my reality is different."
+   - "Every journey begins with a step."
+   - "Imagination wins against reality."
+   - "If all minded their business, the world would turn faster."
+   - "She gave great advice but rarely followed it."
+
+
+## Explanation 
+   - "Everyone has their own kind of madness; it's normal."
+   - "Amazement grows the more we explore the unknown."
+   - "We change constantly, so there's no point in looking back."
+   - "A harsh demand for punishment or justice."
+   - "Believing the impossible can open new possibilities."
+   - "Self-identity is one of life's biggest mysteries."
+   - "Follow a process step by step until completion."
+   - "Perspective defines reality, not madness."
+   - "Every adventure starts with a single decision."
+   - "Creativity is the strongest tool against a dull world."
+   - "Focusing on your own matters makes life smoother."
+   - "People often know what's best but don't act on it."
 
 

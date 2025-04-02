@@ -10,7 +10,7 @@
     <body>
         <header>
             <h1>Garden Map</h1>
-            <button id="playAudioButton" class="btn btn-primary audio-btn">Play Background Music</button>
+            <button id="playAudioButton" class="btn btn-primary audio-btn"></button>
         </header>
         <div id="camera-container">
             <div id="camera"></div>
@@ -33,8 +33,7 @@
                 <button id="down" class="control-btn">↓</button>
             </div>
         </div>
-        <audio id="backgroundAudio" loop>
-            <source src="assets/audio/jazz.mp3" type="audio/mp3">
+        <audio id="backgroundAudio">
             Your browser does not support the audio element.
         </audio>
         
@@ -48,5 +47,7 @@
     <script src="js/map.js"></script>
     <script src="js/scanner.js"></script>
     <script src="js/controls.js"></script>
+    <script src="js/seed.js"></script>
+    <script src="js/notebook.js"></script>
     </body>
 </html>

@@ -233,26 +233,7 @@ class GameScene extends Phaser.Scene {
         });
     }
     
-    dispensePhrase() {
-        const phrases = [
-            "We're all mad here.",
-            "Curiouser and curiouser!",
-            "It's no use going back to yesterday, because I was a different person then.",
-            "Off with their heads!",
-            "Why, sometimes I've believed as many as six impossible things before breakfast.",
-            "Who in the world am I? Ah, that's the great puzzle.",
-            "Begin at the beginning and go on till you come to the end: then stop.",
-            "I'm not strange, weird, off, nor crazy, my reality is just different from yours.",
-            "Every adventure requires a first step.",
-            "Imagination is the only weapon in the war against reality.",
-            "If everybody minded their own business, the world would go around a great deal faster.",
-            "She generally gave herself very good advice, though she very seldom followed it."
-        ];
-        
-        const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-        this.dialogue.setText(`Your phrase: "${randomPhrase}"\n\nClick 'Plant Seed' to grow this phrase!`);
-        this.currentPhrase = randomPhrase;
-    }
+    
     
     plantSeed() {
         if (!this.currentPhrase) {

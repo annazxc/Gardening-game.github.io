@@ -85,7 +85,7 @@ function moveMarker(deltaX, deltaY) {
 
 
 function checkLocation() {
-    const threshold = 0.5; 
+    const threshold = 0.4; 
     let nearestPlace = null;
     let minDistance = Infinity;
 
@@ -106,20 +106,37 @@ function checkLocation() {
     return {nearestPlace, minDistance};
 }
 
-
 function initializeControls() {
     setupControls();
-    document.getElementById("startExploringBtn").onclick = function() {
-        const { nearestPlace, minDistance } = checkLocation();
-    
-        if (nearestPlace) {
-            alert(`Nearest Place: ${nearestPlace.info}, Distance: ${minDistance.toFixed(2)} m`);
-        } else {
-            alert("No nearby locations.");
-        }
-    };
+    const startExploringBtn = document.getElementById("startExploringBtn");
+    if (startExploringBtn && !startExploringBtn.onclick) {
+        startExploringBtn.onclick = function() {
+            const { nearestPlace, minDistance } = checkLocation();
+            if (nearestPlace) {
+                alert(`
+                Nearest Place: ${nearestPlace.info} 
+                Distance: ${minDistance.toFixed(2)} m\n
+                After hitting the confirm button,
+                a button called Seed would show up for 3 sec,\n
+                PLEASE click it as quick as possible to collect seeds. 
+                ONE CLICK = A SEED.`);
+                createSeedButton();
+            } else {
+                alert(`
+                No nearby locations.\n
+                Please continue exploring 
+                to find interesting places.`);
+            }
+        };
+    }
     document.getElementById("worldMapBtn").onclick = function() {
         window.location.href = "https://annazxc.github.io/Gardening-game.github.io/QR.html"
     };
+    
+    initSeedCollectionSystem();
 }
+
+    
 window.onload = initializeControls;
+
+

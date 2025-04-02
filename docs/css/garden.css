@@ -1,0 +1,57 @@
+.garden-container {
+    background-image: url('assets/images/garden-background.jpg'); /* You'll need to create this */
+    background-size: cover;
+    min-height: 600px;
+    position: relative;
+    border: 5px solid #8B4513;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.garden-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.garden-plot {
+    height: 120px;
+    background-color: rgba(139, 69, 19, 0.6);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.garden-plot:hover {
+    background-color: rgba(139, 69, 19, 0.8);
+}
+
+.plant-inventory {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+.plant-item {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.plant-emoji {
+    font-size: 30px;
+}
+
+.back-button {
+    margin: 20px;
+    padding: 10px 20px;
+}

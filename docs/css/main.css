@@ -5,3 +5,9 @@
 @import url(components.css);
 @import url(game.css);
 @import url(map.css);
+@import url(seed.css);
+@import url(notebook.css);
+@import url(slot.css);
+/*no need to add garden*/
+/*check if each css is need or not for all, 
+if only needed in certain file, link them there only.*/
