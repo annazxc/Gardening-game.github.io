@@ -8,7 +8,6 @@
     border: 2px solid #d4b82c;
     padding: 10px;
     overflow-y: auto;
-    font-family: 'Courier New', monospace;
     z-index: 200;
 }
 
@@ -70,7 +69,6 @@
     text-align: center;
     color: #8B4513;
     margin-bottom: 20px;
-    font-family: 'Courier New', monospace;
 }
 
 .notebook-content h3 {
@@ -86,4 +84,12 @@
     border-radius: 5px;
     margin: 5px 0;
     font-style: italic;
+}
+
+.notebook-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }

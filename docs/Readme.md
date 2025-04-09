@@ -39,7 +39,7 @@ Check out my [Personal Website](https://annazxc.github.io/) for more information
     level:0
 
 - 6: 
-    info:"cave entrance",
+    info:"Cabin Entrance",
     level:1
 
 # Phrases in Alice's adventure in Wonderland used

@@ -23,8 +23,8 @@
     --space-xxl: 3rem;
     
     
-    --font-family-primary: 'Alice', system-ui, Avenir, Helvetica, Arial, sans-serif;
-    --font-family-secondary: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --font-family-primary: 'Alice', system-ui, Helvetica, Arial, sans-serif;
+    --font-family-secondary: system-ui, Helvetica, Arial, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.9rem;
     --font-size-md: 1rem;

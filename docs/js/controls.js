@@ -129,9 +129,6 @@ function initializeControls() {
             }
         };
     }
-    document.getElementById("worldMapBtn").onclick = function() {
-        window.location.href = "https://annazxc.github.io/Gardening-game.github.io/QR.html"
-    };
     
     initSeedCollectionSystem();
 }

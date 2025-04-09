@@ -1,37 +1,37 @@
 const places = {
 1: {
-    info:"Lake",
-    top:0.37,
-    left:0.24,
+    info:"Bamboo stem",
+    top:0.28,
+    left:0.82,
     level:0
 },
 2: {
-    info:"Berry Bush",
-    top:0.31,
-    left:0.66,
-    level:0
+    info:"Exotic Flowers",
+    top:0.75,
+    left:0.89,
+    level:2
 },
 3: {
-    info:"Patch of Herbs",
-    top:0.46,
-    left:0.80,
+    info:"Patch of Grass",
+    top:0.84,
+    left:0.23,
     level:0
 },
 4: {
-    info:"Cherry Blossom Tree Garden",
-    top:0.54,
-    left:0.45,
+    info:"Bamboo Garden",
+    top:0.70,
+    left:0.43,
     level:0
 },
-5: {//level 1 is the resting area, entrance to the cave at level 0
-    info:"Resting Area", 
-    top:0.52,
-    left:0.32,
-    level:0
+5: {
+    info:"Pavilion", 
+    top:0.74,
+    left:0.46,
+    level:2
 },
 6: {
-    info:"Cave Entrance",
-    top:0.65,
+    info:"Cabin Entrance",
+    top:0.78,
     left:0.50,
     level:1
 }

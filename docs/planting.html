@@ -7,15 +7,17 @@
     <title>Looking Glass Garden</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/garden.css">
+    <link rel="stylesheet" href="css/slot.css">
 </head>
 <body>
     <header>
     <button id="playAudioButton" class="btn btn-primary audio-btn"></button>
     <h1>Looking Glass Garden</h1>
     </header>
+     <img class="image-container" src="assets/images/garden.jpeg" alt="Garden" />
     <div>
     <button class="btn btn-secondary back-button" onclick="window.location.href='QR.html'">Back to Map</button>
-    <button id="launchSlotMachine" class="btn btn-primary  back-button" onclick="showSlotMachine()">Play Slot Machine</button>
+    <button id="launchSlotMachine" class="btn btn-primary  back-button" onclick="showSlotMachine()">Slot Machine Game</button>
     </div>
     <div class="plant-inventory">
         <div class="plant-item">
@@ -40,8 +42,44 @@
     
     <div class="garden-container">
         <div class="garden-grid" id="garden-grid">
-            <!-- Garden plots will be generated here -->
+            <div class="garden-circles">
+                <div class="circle seeds-circle" onclick="selectArea('seeds')">
+                    <span class="circle-label">Seeds 🌰</span>
+                    <span class="count-display" id="seeds-count">0</span>
+                </div>
+                <div class="circle sprouts-circle" onclick="selectArea('sprouts')">
+                    <span class="circle-label">Sprouts 🌱</span>
+                    <span class="count-display" id="sprouts-count">0</span>
+                </div>
+                <div class="circle trees-circle" onclick="selectArea('trees')">
+                    <span class="circle-label">Trees 🌳</span>
+                    <span class="count-display" id="trees-count">0</span>
+                </div>
+            </div>
+            
+            <div class="collection-container">
+                <div class="collection-area water-area" onclick="collectResource('water')">
+                    <div class="collection-animation" id="water-animation"></div>
+                    <span>Water Collection </span>
+                    <div class="collection-level">
+                        <div class="level-fill water-fill" id="water-level"></div>
+                    </div>
+                    <button class="tool-button" id="water-button" disabled>Collect</button>
+                </div>
+                
+                <div class="collection-area fertilizer-area" onclick="collectResource('fertilizer')">
+                    <div class="collection-animation" id="fertilizer-animation"></div>
+                    <span>Fertilizer Collection </span>
+                    <div class="collection-level">
+                        <div class="level-fill fertilizer-fill" id="fertilizer-level"></div>
+                    </div>
+                    <button class="tool-button" id="fertilizer-button" disabled>Collect</button>
+                </div>
+            </div>
         </div>
+        
+        <div class="tool watering-can" id="watering-can"></div>
+        <div class="tool fertilizer-bag" id="fertilizer-bag"></div>
     </div>
     
     <audio id="backgroundAudio">
@@ -51,8 +89,8 @@
         &copy; 2025 Gardening Wonderland by Tingan Cheng.
     </footer>
     <script src="js/audioControl.js"></script>
-    <script href="js/slotMachine.js"></script>
-    <script href="js/garden.js"></script>
+    <script src="js/slotMachine.js"></script>
+    <script src="js/planting.js"></script>
     
 </body>
 </html>

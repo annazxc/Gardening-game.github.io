@@ -1,4 +1,3 @@
-/* Slot Machine Styles */
 .slot-machine-overlay {
     position: fixed;
     top: 0;
@@ -81,12 +80,4 @@
     min-height: 50px;
 }
 
-/* Notebook button styling */
-.notebook-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
 
