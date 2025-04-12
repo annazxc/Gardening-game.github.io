@@ -169,12 +169,12 @@ function updateNotebook(word) {
         document.body.appendChild(notebook);
     }
     
-    // Add the word to the notebook
     const wordElement = document.createElement('span');
     wordElement.textContent = word + ' ';
     wordElement.className = 'collected-word';
     notebook.appendChild(wordElement);
 }
+
 
 function checkForCompletedPhrases() {
     const phrases = [
@@ -196,7 +196,6 @@ function checkForCompletedPhrases() {
         const collectedWordsSet = new Set(collectedWords);
     
         phrases.forEach(phrase => {
-            // Skip if we've already collected this phrase
             if (collectedPhrases.includes(phrase)) {
                 return;
             }

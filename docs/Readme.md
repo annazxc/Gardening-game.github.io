@@ -73,3 +73,22 @@ Check out my [Personal Website](https://annazxc.github.io/) for more information
    - "People often know what's best but don't act on it."
 
 
+
+# The applications use **Gemini API** and **Groq API** to call LLMs.
+
+# The Wit Tree: Storyteller 
+The **Wit Tree** is an interactive tree that uses Groq : llama3-70b-8192 to let user to ask about the storyline in alice's adventure in wonderland. 
+It uses RAG (Retrieval-Augmented Generation)  to enhance **Precision and Relevance** of the reply.
+
+# Poem Generator
+After players gather words from selected phrases in the **Word Collection Game**, the collected words are passed to **Gemini 2.0 Flash** to generate original poems.
+These poems are presented in a notebook format.
+
+## I created the vector database of "Alice's Adventures in Wonderland" in the [Colab notebook](https://colab.research.google.com/drive/1UBXK-FOxOxoQEHSp8lImWvXJcO_5jvyP)
+
+# Required dependencies:
+pip install flask flask-cors langchain-community huggingface-hub
+
+# Run the API server:
+python vector_db_api.py
+

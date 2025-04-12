@@ -28,29 +28,21 @@ function setupControls() {
         
         switch(e.key) {
             case 'ArrowUp':
-            case 'w':
-            case 'W':
                 console.log("Moving up");
                 moveMarker(0, -moveSpeed);
                 e.preventDefault(); 
                 break;
             case 'ArrowDown':
-            case 's':
-            case 'S':
                 console.log("Moving down");
                 moveMarker(0, moveSpeed);
                 e.preventDefault();
                 break;
             case 'ArrowLeft':
-            case 'a':
-            case 'A':
                 console.log("Moving left");
                 moveMarker(-moveSpeed, 0);
                 e.preventDefault();
                 break;
             case 'ArrowRight':
-            case 'd':
-            case 'D':
                 console.log("Moving right");
                 moveMarker(moveSpeed, 0);
                 e.preventDefault();

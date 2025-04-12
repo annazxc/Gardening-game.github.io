@@ -137,12 +137,27 @@ function createBackpackPanel() {
     });
 }
 
+function cleanupAudioControls() {
+    const existingContainer = document.querySelector('.audio-control-container');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    const existingAudio = document.getElementById('backgroundAudio');
+    if (existingAudio) {
+        existingAudio.pause();
+        existingAudio.remove();
+    }
+}
+
 function showMarkerAt(place) {
     let marker = document.getElementById("marker");
     let mapContainer = document.getElementById("map-container");
     let cameraContainer = document.getElementById("camera-container");
     let map = document.getElementById("map");
     let sleepBtn = document.getElementById("sleepBtn");
+    
+    // Cleanup existing audio controls before scene change
+    cleanupAudioControls();
     
     // Update player stats based on movement (reduce stamina)
     updateStaminaOnMove();
@@ -177,15 +192,10 @@ function showMarkerAt(place) {
         mapContainer.style.display = "block";
         document.getElementsByClassName('scene-background')[0].style.display = "none";
         
-        // Update audio for the new scene
-        if (typeof updateAudioForScene === 'function') {
-            updateAudioForScene(place.info ? place.info.toLowerCase() : "home");
-        }
-        
-        // Re-initialize audio controls after scene change
-        if (typeof initAudioControls === 'function') {
-            setTimeout(initAudioControls, 100);
-        }
+        // Reinitialize audio controls
+        const script = document.createElement('script');
+        script.src = 'js/audioControl.js';
+        document.body.appendChild(script);
                 
         // Set up controls after map is visible
         setTimeout(function() {
@@ -199,6 +209,7 @@ function showMarkerAt(place) {
         console.error("Marker element or place data is missing");
     }
 }
+
 function showLocationName(locationName) {
     // Create or update location display
     let locationDisplay = document.getElementById('location-display');
@@ -214,7 +225,6 @@ function showLocationName(locationName) {
     locationDisplay.textContent = locationName;
     locationDisplay.classList.add('show');
     
-    // Hide after a few seconds
     setTimeout(() => {
         locationDisplay.classList.remove('show');
     }, 3000);
@@ -311,9 +321,36 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGame();
 });
 
+// Image preloading
+const imageCache = new Map();
 
-//for map
-const images = [ new Image(), new Image()];
-images[0].src = 'assets/images/level_0.png';
-images[1].src = 'assets/images/level_1.png';
-images[2].src = 'assets/images/level_2.png';
+function preloadImage(src) {
+    if (!imageCache.has(src)) {
+        const img = new Image();
+        img.src = src;
+        imageCache.set(src, img);
+        return new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+        });
+    }
+    return Promise.resolve();
+}
+
+async function preloadLevelImages() {
+    const imageSources = [
+        'assets/images/level_0.png',
+        'assets/images/level_1.png',
+        'assets/images/level_2.png'
+    ];
+    
+    try {
+        await Promise.all(imageSources.map(src => preloadImage(src)));
+        console.log('All level images preloaded successfully');
+    } catch (error) {
+        console.error('Error preloading images:', error);
+    }
+}
+
+// Call preloadLevelImages when the game starts
+window.addEventListener('load', preloadLevelImages);

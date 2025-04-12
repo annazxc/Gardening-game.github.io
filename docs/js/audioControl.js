@@ -1,7 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const audioElement = document.getElementById("backgroundAudio");
-    const playButton = document.getElementById("playAudioButton");
+    // Create audio element
+    const audioElement = document.createElement("audio");
+    audioElement.id = "backgroundAudio";
+    document.body.appendChild(audioElement);
+
+    // Create container for audio controls
+    const audioControlContainer = document.createElement("div");
+    audioControlContainer.className = "audio-control-container";
+    audioControlContainer.style.position = "absolute";
+    audioControlContainer.style.top = "var(--space-sm)";
+    audioControlContainer.style.right = "var(--space-sm)";
+    audioControlContainer.style.zIndex = "var(--z-index-ui)";
+    audioControlContainer.style.display = "flex";
+    audioControlContainer.style.flexDirection = "column";
+    audioControlContainer.style.alignItems = "flex-end";
+    audioControlContainer.style.gap = "10px"; // Add gap between elements
+
+    // Create audio button
+    const playButton = document.createElement("button");
+    playButton.id = "playAudioButton";
+    playButton.className = "btn btn-primary audio-btn";
+    playButton.textContent = "Play Music";
+    playButton.style.position = "relative"; // Change to relative positioning
+    playButton.style.zIndex = "2"; // Ensure button is above selector
+
+    // Create music selector
     const musicSelector = document.createElement("select");
+    musicSelector.id = "musicSelector";
+    musicSelector.className = "audio-selector";
+    musicSelector.style.marginTop = "5px";
+    musicSelector.style.padding = "5px";
+    musicSelector.style.width = "200px"; // Fixed width
+    musicSelector.style.zIndex = "1"; // Put selector behind button
     
     const pageMusic = {
         "index.html": "assets/audio/intro.mp3",
@@ -33,13 +63,69 @@ document.addEventListener("DOMContentLoaded", function () {
     let isPlaying = false;
     let userSelectedTrack = false;
 
-    const currentPage = window.location.pathname.split("/").pop();
+    // Setup music selector options
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "-- Select a Song --";
+    musicSelector.appendChild(defaultOption);
 
+    playlist.forEach(song => {
+        const option = document.createElement("option");
+        option.value = song;
+        option.textContent = songNames[song] || song.split('/').pop().replace('.mp3', '');
+        musicSelector.appendChild(option);
+    });
+
+    // Remove existing elements if they exist
+    const existingButton = document.getElementById("playAudioButton");
+    if (existingButton) {
+        existingButton.remove();
+    }
+    const existingSelector = document.getElementById("musicSelector");
+    if (existingSelector) {
+        existingSelector.remove();
+    }
+
+    // Add elements to container
+    audioControlContainer.appendChild(playButton);
+    audioControlContainer.appendChild(musicSelector);
+
+    // Add container to body
+    document.body.appendChild(audioControlContainer);
+
+    // Add responsive styling
+    const styleTag = document.createElement("style");
+    styleTag.textContent = `
+        .audio-control-container {
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .audio-control-container {
+                top: var(--space-md) !important;
+                right: var(--space-md) !important;
+            }
+        }
+        .audio-selector {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            transition: all 0.3s ease;
+        }
+        .audio-selector:hover {
+            border-color: var(--color-accent);
+        }
+    `;
+    document.head.appendChild(styleTag);
+
+    // Set initial audio source based on current page
+    const currentPage = window.location.pathname.split("/").pop();
     if (pageMusic[currentPage]) {
         audioElement.src = pageMusic[currentPage];
         const pageTrackIndex = playlist.indexOf(pageMusic[currentPage]);
         if (pageTrackIndex !== -1) {
             currentTrack = pageTrackIndex;
+            musicSelector.value = playlist[currentTrack];
         }
     } else {
         audioElement.src = playlist[0];
@@ -56,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         musicSelector.value = playlist[currentTrack];
     }
 
+    // Event Listeners
     audioElement.addEventListener("ended", () => {
         userSelectedTrack = false; 
         playNextTrack();
@@ -63,7 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     playButton.addEventListener("click", () => {
         if (audioElement.paused) {
-            audioElement.play();
+            audioElement.play().catch(error => {
+                console.error("Error playing audio:", error);
+            });
             isPlaying = true;
         } else {
             audioElement.pause();
@@ -72,81 +161,24 @@ document.addEventListener("DOMContentLoaded", function () {
         updateButtonText();
     });
 
-musicSelector.id = "musicSelector";
-musicSelector.className = "audio-selector"; 
-
-const defaultOption = document.createElement("option");
-defaultOption.value = "";
-defaultOption.textContent = "-- Select a Song --";
-musicSelector.appendChild(defaultOption);
-
-playlist.forEach(song => {
-    const option = document.createElement("option");
-    option.value = song;
-    option.textContent = songNames[song] || song.split('/').pop().replace('.mp3', '');
-    musicSelector.appendChild(option);
-});
-
-const audioControlContainer = document.createElement("div");
-audioControlContainer.className = "audio-control-container";
-audioControlContainer.style.position = "absolute";
-audioControlContainer.style.top = "var(--space-sm)";
-audioControlContainer.style.right = "var(--space-sm)";
-audioControlContainer.style.zIndex = "var(--z-index-ui)";
-audioControlContainer.style.display = "flex";
-audioControlContainer.style.flexDirection = "column";
-audioControlContainer.style.alignItems = "flex-end";
-
-musicSelector.style.marginTop = "5px";
-musicSelector.style.padding = "5px";
-musicSelector.style.width = "100%";
-
-const buttonParent = playButton.parentNode;
-
-// Remove the button from its current position
-buttonParent.removeChild(playButton);
-
-// Add both elements to the container
-audioControlContainer.appendChild(playButton);
-audioControlContainer.appendChild(musicSelector);
-
-// Add the container to the original parent
-buttonParent.appendChild(audioControlContainer);
-
-// Add responsive styling via a style tag
-const styleTag = document.createElement("style");
-styleTag.textContent = `
-  @media (min-width: 768px) {
-    .audio-control-container {
-      top: var(--space-md) !important;
-      right: var(--space-md) !important;
-    }
-  }
-`;
-document.head.appendChild(styleTag);
-
-// Make sure the play button keeps its original styling
-playButton.style.position = "static";  // Remove absolute positioning from button
-    
-    // Handle selection change
     musicSelector.addEventListener("change", function() {
         if (this.value) {
             audioElement.src = this.value;
             userSelectedTrack = true;
             
-            // Find the index in the playlist for when this track ends
             const selectedIndex = playlist.indexOf(this.value);
             if (selectedIndex !== -1) {
                 currentTrack = selectedIndex;
             }
             
-            // Start playing automatically when a song is selected
-            audioElement.play();
+            audioElement.play().catch(error => {
+                console.error("Error playing audio:", error);
+            });
             isPlaying = true;
             updateButtonText();
         }
     });
-    
+
     // Initial button text setup
     updateButtonText();
 });

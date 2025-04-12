@@ -7,16 +7,14 @@ function showCollectionNotebook() {
     notebookOverlay.id = 'notebook-overlay';
     notebookOverlay.className = 'notebook-overlay';
     
-    // Create notebook content
     const notebookContent = document.createElement('div');
     notebookContent.className = 'notebook-content';
     
-    // Add title
     const title = document.createElement('h2');
-    title.textContent = "Your Collected \n Words & Phrases";
+    title.textContent = `Your Collected
+    Words & Phrases`;
     notebookContent.appendChild(title);
     
-    // Add collected words section
     const wordsSection = document.createElement('div');
     wordsSection.className = 'notebook-section';
     
@@ -35,14 +33,13 @@ function showCollectionNotebook() {
     
     notebookContent.appendChild(wordsSection);
     
-    // Add completed phrases section
     const phrasesSection = document.createElement('div');
     phrasesSection.className = 'notebook-section';
     
     const phrasesTitle = document.createElement('h3');
     phrasesTitle.textContent = 'Completed Phrases:';
     phrasesSection.appendChild(phrasesTitle);
-    
+    initPoemGenerator();
     if (collectedPhrases.length > 0) {
         collectedPhrases.forEach(phrase => {
             const phraseItem = document.createElement('p');
@@ -52,27 +49,24 @@ function showCollectionNotebook() {
         });
     } else {
         const noPhrases = document.createElement('p');
-        noPhrases.textContent = "No complete phrases collected yet.\n Keep exploring!";
+        noPhrases.textContent = `No complete phrases collected yet.
+        Keep exploring!`;
         phrasesSection.appendChild(noPhrases);
     }
     
     notebookContent.appendChild(phrasesSection);
 
-    // Add button container
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'notebook-buttons';
     
-    // Add exchange seeds button
     const exchangeButton = document.createElement('button');
-    exchangeButton.className = 'btn btn-success';
+    exchangeButton.className = 'btn btn-primary btn-success';
     exchangeButton.textContent = 'Exchange Seeds for Sprouts';
     exchangeButton.onclick = function() {
         if (collectedWords.length > 0) {
-            // Exchange seeds for sprouts (1:1 ratio)
             const sproutsGained = collectedWords.length;
             localStorage.setItem('sprouts', sproutsGained);
             
-            // Show slot machine if phrases collected
             if (collectedPhrases.length > 0) {
                 showSlotMachine();
             } else {
@@ -84,18 +78,15 @@ function showCollectionNotebook() {
     };
     buttonContainer.appendChild(exchangeButton);
 
-    // Add start planting button
     const plantButton = document.createElement('button');
     plantButton.className = 'btn btn-primary';
     plantButton.textContent = 'Start Planting';
     plantButton.onclick = function() {
-        // Redirect to planting page
         window.location.href = 'planting.html';
     };
     buttonContainer.appendChild(plantButton);
     
-    
-    // Add continue button
+
     const continueButton = document.createElement('button');
     continueButton.className = 'btn btn-primary';
     continueButton.textContent = 'Keep going!';
@@ -112,11 +103,8 @@ function showCollectionNotebook() {
     
     notebookContent.appendChild(buttonContainer);
     notebookOverlay.appendChild(notebookContent);
-    
-    // Add to body
     document.body.appendChild(notebookOverlay);
     
-    // Trigger animation
     setTimeout(() => {
         notebookOverlay.classList.add('open');
     }, 10);

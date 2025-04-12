@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button id="testVoice">Test Wit Tree Voice</button>
+        <script src="js/witTree_voice.js"></script>
+        <script src="js/witTree_animation.js"></script>
+        <script>
+            const tree = new WitTreeVoice();
+            document.getElementById('testVoice').addEventListener('click', () => {
+                const animator = new WitTreeAnimator();
+                tree.setAnimator(animator);
+                tree.speak("Hello adventurer! I am the Wit Tree, guardian of this magical forest.");
+            });
+
+           
+
+            //Check available voices
+            treeVoice.getAvailableVoices().forEach((voice, index) => {
+                console.log(`Voice ${index}: ${voice.name} (${voice.lang})`);
+            });
+            </script>
+    </body>
+</html>
