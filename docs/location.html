@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Location Explorer</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/location.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+</head>
+<body>
+    <h1>Your Location Map</h1>
+    <div id="location-info">Detecting your location...</div>
+    <div class="container">
+        <h1>Interactive Location Explorer</h1>
+        <div id="map-container">
+            <div id="loading">Locating you and finding interesting places nearby...</div>
+            <div id="map"></div>
+        </div>
+        <h1>Nearby Places To Explore</h1>
+        <div id="nearby-places"></div>
+    </div>
+    <div id="weather"></div>
+    <script src="js/config.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js"></script>
+    
+    <script src="js/location.js"></script>
+</body>
+</html>
